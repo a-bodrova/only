@@ -1,0 +1,216 @@
+@import './constants';
+@import './mixins';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+
+h1,
+h2 {
+  font-weight: normal;
+  font-size: inherit;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.main {
+  min-height: 100vh;
+  @include flex-column($gap: getValue(desktop, $main-gap));
+  padding: getValue(desktop, $main-padding);
+
+  @include media-laptop-big {
+    padding: getValue(laptop-big, $main-padding);
+    gap: getValue(laptop-big, $main-gap);
+  }
+
+  @include media-laptop {
+    padding: getValue(laptop, $main-padding);
+    gap: getValue(laptop, $main-gap);
+  }
+
+  @include media-tablet {
+    padding: getValue(tablet, $main-padding);
+    gap: getValue(tablet, $main-gap);
+  }
+
+  @include media-mobile {
+    padding: getValue(mobile, $main-padding);
+    gap: getValue(mobile, $main-gap);
+  }
+}
+
+.page-title {
+  font-size: getValue(desktop, $page-title);
+  color: $color-title;
+
+  @include media-laptop-big {
+    font-size: getValue(laptop-big, $page-title);
+  }
+
+  @include media-laptop {
+    font-size: getValue(laptop, $page-title);
+  }
+
+  @include media-tablet {
+    font-size: getValue(tablet, $page-title);
+  }
+
+  @include media-mobile {
+    font-size: getValue(mobile, $page-title);
+  }
+}
+
+.list {
+  list-style: none;
+}
+
+.item {
+  border-top: 1px solid $color-gray;
+  border-bottom: 1px solid $color-gray;
+  cursor: pointer;
+
+  &.active {
+    color: $color-active;
+
+    & .title__icon {
+      transform: rotate(45deg);
+
+      &::before {
+        background-color: $color-active;
+      }
+
+      &::after {
+        background-color: $color-active;
+      }
+    }
+
+    & .item__content {
+      padding-bottom: getValue(desktop, $item-content-padding);
+
+      @include media-laptop-big {
+        padding-bottom: getValue(laptop-big, $item-content-padding);
+      }
+    
+      @include media-laptop {
+        padding-bottom: getValue(laptop, $item-content-padding);
+      }
+    
+      @include media-tablet {
+        padding-bottom: getValue(tablet, $item-content-padding);
+      }
+    
+      @include media-mobile {
+        padding-bottom: getValue(mobile, $item-content-padding);
+      }
+    }
+  }
+}
+
+.title {
+  @include flex-row;
+  padding: getValue(desktop, $item-title-padding);
+  font-size: getValue(desktop, $item-title);
+  color: $color-title;
+  line-height: 120%;
+
+  &:hover {
+    color: $color-active;
+
+    & .title__icon {
+      &::before,
+      &::after {
+        background-color: $color-active;
+      }
+    }
+  }
+
+  &__text {
+    flex-basis: 90%;
+  }
+
+  &__icon {
+    position: relative;
+    @include sizes(20px);
+    flex-basis: 5%;
+    transition: all 0.3s ease-in-out;
+    transform: rotate(0);
+
+    &::before {
+      content: '';
+      @include sizes(20px, $height: 1px);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background-color: $color-main;
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      content: '';
+      @include sizes(1px, $height: 20px);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background-color: $color-main;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @include media-laptop-big {
+    font-size: getValue(laptop-big, $item-title);
+    padding: getValue(laptop-big, $item-title-padding);
+  }
+
+  @include media-laptop {
+    font-size: getValue(laptop, $item-title);
+    padding: getValue(laptop, $item-title-padding);
+  }
+
+  @include media-tablet {
+    font-size: getValue(tablet, $item-title);
+    padding: getValue(tablet, $item-title-padding);
+  }
+
+  @include media-mobile {
+    font-size: getValue(mobile, $item-title);
+    padding: getValue(mobile, $item-title-padding);
+  }
+}
+
+.item__content {
+  max-height: 0;
+  font-size: getValue(desktop, $item-content);
+  line-height: 150%;
+  color: $color-main;
+  opacity: 0.8;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  box-sizing: content-box;
+
+  @include media-laptop-big {
+    font-size: getValue(laptop-big, $item-content);
+  }
+
+  @include media-laptop {
+    font-size: getValue(laptop, $item-content);
+  }
+
+  @include media-tablet {
+    font-size: getValue(tablet, $item-content);
+  }
+
+  @include media-mobile {
+    font-size: getValue(mobile, $item-content);
+  }
+}

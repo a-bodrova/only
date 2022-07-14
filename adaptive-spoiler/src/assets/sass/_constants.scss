@@ -1,0 +1,72 @@
+$color-title: #012B34;
+$color-main: #000402;
+$color-gray: #E6E6E6;
+$color-active: #02818A;
+
+$width: (
+  desktop: 1920px,
+  laptop-big: 1440px,
+  laptop: 1280px,
+  tablet: 768px,
+  mobile: 375px,
+);
+
+$main-padding: (
+  desktop: 100px 160px,
+  laptop-big: 80px 120px,
+  laptop: 70px 107px,
+  tablet: 60px 40px,
+  mobile: 50px 24px,
+);
+
+$main-gap: (
+  desktop: 80px,
+  laptop-big: 60px,
+  laptop: 56px,
+  tablet: 50px,
+  mobile: 40px,
+);
+
+$page-title: (
+  desktop: 6.4rem,
+  laptop-big: 4.8rem,
+  laptop: 4.2rem,
+  tablet: 4.2rem,
+  mobile: 3rem,
+);
+
+$item-title: (
+  desktop: 3.6rem,
+  laptop-big: 2.7rem,
+  laptop: 2.4rem,
+  tablet: 2.7rem,
+  mobile: 3rem,
+);
+
+$item-title-padding: (
+  desktop: 30px 0,
+  laptop-big: 24px 0 20px,
+  laptop: 20px 0 16px,
+  tablet: 24px 0 16px,
+  mobile: 20px 0 16px,
+);
+
+$item-content: (
+  desktop: 2rem,
+  laptop-big: 1.5rem,
+  laptop: 1.4rem,
+  tablet: 1.5rem,
+  mobile: 1.5rem,
+);
+
+$item-content-padding: (
+  desktop: 40px,
+  laptop-big: 30px,
+  laptop: 24px,
+  tablet: 24px,
+  mobile: 20px,
+);
+
+@function getValue($value, $map) {
+	@return map-get($map, $value);
+};
