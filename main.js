@@ -1,0 +1,1 @@
+!function(){"use strict";document.querySelectorAll(".item").forEach((function(t){t.onclick=function(e){var c=e.currentTarget,i=c.querySelector(".item__content");t.classList.toggle("active"),c.classList.contains("active")?i.style.maxHeight="".concat(i.scrollHeight,"px"):i.style.maxHeight="0"}}))}();
